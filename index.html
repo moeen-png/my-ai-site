@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ساخته شده توسط معین</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      direction: rtl;
+      background: #f5f5f5;
+      text-align: center;
+      padding: 2rem;
+    }
+    .hidden {
+      display: none;
+    }
+    .panel {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    input[type="password"] {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>ساخته شده توسط معین</h1>
+  <p>در این سایت با هوش مصنوعی‌های مختلف آشنا می‌شوید.</p>
+
+  <div class="panel">
+    <p>برای مشاهده محتوای کامل، رمز عبور را وارد کنید:</p>
+    <input type="password" id="password" placeholder="رمز عبور">
+    <button onclick="checkPassword()">ورود</button>
+  </div>
+
+  <div id="content" class="hidden">
+    <h2>مدل‌های معروف هوش مصنوعی</h2>
+    <ul>
+      <li><strong>ChatGPT:</strong> ساخت OpenAI برای مکالمه‌های طبیعی</li>
+      <li><strong>Gemini:</strong> مدل گوگل با توانایی پردازش چندرسانه‌ای</li>
+      <li><strong>Claude:</strong> محصول Anthropic با تمرکز بر امنیت و اخلاق</li>
+      <li><strong>LLaMA:</strong> مدل اپن‌سورس Meta برای تحقیقات</li>
+    </ul>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById('password').value;
+      if (input === 'moienkopkop') {
+        document.getElementById('content').classList.remove('hidden');
+      } else {
+        alert('رمز اشتباه است!');
+      }
+    }
+  </script>
+
+</body>
+</html>
