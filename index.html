@@ -1,73 +1,1783 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ساخته شده توسط معین</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      direction: rtl;
-      background: #f5f5f5;
-      text-align: center;
-      padding: 2rem;
-    }
-    .hidden {
-      display: none;
-    }
-    .panel {
-      margin-top: 2rem;
-      padding: 1rem;
-      background: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-    input[type="password"] {
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    button {
-      padding: 0.5rem 1rem;
-      background: #007bff;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آموزشگاه موسیقی هارمونی | بهترین آموزشگاه موسیقی</title>
+    <meta name="description" content="آموزشگاه موسیقی هارمونی - آموزش حرفه‌ای انواع سازها، دوره‌های تئوری موسیقی و فروش محصولات موسیقی. با اساتید مجرب و محیطی دلنشین، استعداد خود را شکوفا کنید.">
+    <meta name="keywords" content="آموزش موسیقی, آموزشگاه موسیقی, آموزش ساز, گیتار, پیانو, ویولن, آواز, تئوری موسیقی, محصولات موسیقی, هارمونی, کلاس موسیقی, استاد موسیقی">
+    <meta name="author" content="Harmony Music Academy">
+    <meta property="og:title" content="آموزشگاه موسیقی هارمونی">
+    <meta property="og:description" content="آموزشگاه موسیقی هارمونی - آموزش حرفه‌ای انواع سازها، دوره‌های تئوری موسیقی و فروش محصولات موسیقی.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.harmonymusicacademy.com">
+    <!-- Placeholder for social media image -->
+    <meta property="og:image" content="https://placehold.co/1200x630/4A148C/FFFFFF?text=Harmony+Music+Academy">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter for clean typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        /* Custom scrollbar for better UI/UX */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+
+        /* Hero section specific styles */
+        .hero-bg {
+            /* Default background, will be updated by JS */
+            background-image: url('https://placehold.co/1920x1080/4A148C/FFFFFF?text=تصویر+پس‌زمینه+گیتار');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Card hover effect */
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Modal animations */
+        .modal-backdrop {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .modal-content {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Floating Cart Button */
+        #cart-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 50;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        #cart-button:hover {
+            transform: scale(1.1);
+            background-color: #45a049;
+        }
+        #cart-count {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            background-color: #FF0000;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
 </head>
-<body>
+<body class="scroll-smooth">
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-purple-800 to-indigo-800 text-white shadow-lg fixed w-full z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo / Academy Name -->
+            <a href="#" class="flex items-center space-x-2">
+                <i class="fas fa-compact-disc text-3xl text-purple-300"></i>
+                <span class="text-3xl font-bold tracking-wider">هارمونی</span>
+            </a>
 
-  <h1>ساخته شده توسط معین</h1>
-  <p>در این سایت با هوش مصنوعی‌های مختلف آشنا می‌شوید.</p>
+            <!-- Navigation Links (Desktop) -->
+            <ul class="hidden md:flex space-x-8 text-lg">
+                <li><a href="#hero" class="hover:text-purple-300 transition duration-300">خانه</a></li>
+                <li><a href="#about" class="hover:text-purple-300 transition duration-300">درباره ما</a></li>
+                <li><a href="#products" class="hover:text-purple-300 transition duration-300">محصولات</a></li>
+                <li><a href="#instructors" class="hover:text-purple-300 transition duration-300">اساتید</a></li>
+                <li><a href="#gallery" class="hover:text-purple-300 transition duration-300">گالری</a></li>
+                <li><a href="#contact" class="hover:text-purple-300 transition duration-300">تماس با ما</a></li>
+            </ul>
 
-  <div class="panel">
-    <p>برای مشاهده محتوای کامل، رمز عبور را وارد کنید:</p>
-    <input type="password" id="password" placeholder="رمز عبور">
-    <button onclick="checkPassword()">ورود</button>
-  </div>
+            <!-- Mobile Menu Button & Admin Button -->
+            <div class="flex items-center space-x-4">
+                <!-- Admin Button (Ellipsis) -->
+                <button id="admin-button" class="bg-purple-700 hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 rounded-full w-10 h-10 flex items-center justify-center transition duration-300">
+                    <i class="fas fa-ellipsis-h text-xl"></i>
+                </button>
 
-  <div id="content" class="hidden">
-    <h2>مدل‌های معروف هوش مصنوعی</h2>
-    <ul>
-      <li><strong>ChatGPT:</strong> ساخت OpenAI برای مکالمه‌های طبیعی</li>
-      <li><strong>Gemini:</strong> مدل گوگل با توانایی پردازش چندرسانه‌ای</li>
-      <li><strong>Claude:</strong> محصول Anthropic با تمرکز بر امنیت و اخلاق</li>
-      <li><strong>LLaMA:</strong> مدل اپن‌سورس Meta برای تحقیقات</li>
-    </ul>
-  </div>
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
 
-  <script>
-    function checkPassword() {
-      const input = document.getElementById('password').value;
-      if (input === 'moienkopkop') {
-        document.getElementById('content').classList.remove('hidden');
-      } else {
-        alert('رمز اشتباه است!');
-      }
-    }
-  </script>
+        <!-- Mobile Navigation Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-purple-900 py-4">
+            <ul class="flex flex-col items-center space-y-4 text-lg">
+                <li><a href="#hero" class="block w-full text-center py-2 hover:bg-purple-800 transition duration-300 rounded">خانه</a></li>
+                <li><a href="#about" class="block w-full text-center py-2 hover:bg-purple-800 transition duration-300 rounded">درباره ما</a></li>
+                <li><a href="#products" class="block w-full text-center py-2 hover:bg-purple-800 transition duration-300 rounded">محصولات</a></li>
+                <li><a href="#instructors" class="block w-full text-center py-2 hover:bg-purple-800 transition duration-300 rounded">اساتید</a></li>
+                <li><a href="#gallery" class="block w-full text-center py-2 hover:bg-purple-800 transition duration-300 rounded">گالری</a></li>
+                <li><a href="#contact" class="block w-full text-center py-2 hover:bg-purple-800 transition duration-300 rounded">تماس با ما</a></li>
+            </ul>
+        </div>
+    </header>
 
+    <main class="pt-20"> <!-- Padding to account for fixed header -->
+        <!-- Hero Section (Landing Page) -->
+        <section id="hero" class="hero-bg h-screen flex items-center justify-center text-center text-white relative">
+            <div class="hero-overlay absolute inset-0"></div>
+            <div class="relative z-10 px-4">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6" data-text-field="hero-title">
+                    هنر موسیقی را در هارمونی تجربه کنید
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 leading-relaxed" data-text-field="hero-subtitle">
+                    مدرسان حرفه‌ای، دوره‌های جامع، و فضایی الهام‌بخش برای هر سطح.
+                </p>
+                <a href="#enroll" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg transition duration-300 transform hover:scale-105">
+                    ثبت نام کنید!
+                </a>
+            </div>
+        </section>
+
+        <!-- About Us Section (صفحه آموزشگاه) -->
+        <section id="about" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 text-purple-800" data-text-field="about-title">
+                    درباره آموزشگاه هارمونی
+                </h2>
+                <div class="flex flex-col md:flex-row items-center gap-10">
+                    <div class="md:w-1/2">
+                        <!-- Image updated with data-image-field -->
+                        <img id="about-image" src="https://placehold.co/600x400/9C27B0/FFFFFF?text=درباره+آکادمی" alt="درباره آموزشگاه" class="rounded-xl shadow-2xl w-full h-auto object-cover transform hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="md:w-1/2 text-lg leading-relaxed" data-text-field="about-description">
+                        <p class="mb-4">
+                            آموزشگاه موسیقی هارمونی با بیش از ۱۵ سال سابقه درخشان، مأموریت دارد تا فضایی پویا و الهام‌بخش برای یادگیری و رشد استعدادهای موسیقی فراهم کند. ما با بهره‌گیری از اساتید مجرب و متدولوژی‌های آموزشی نوین، تجربه‌ای بی‌نظیر از یادگیری موسیقی را به شما ارائه می‌دهیم. از مبتدی تا پیشرفته، برای هر سن و هر سازی، دوره‌های اختصاصی داریم.
+                        </p>
+                        <p>
+                            ما به کیفیت آموزش، محیط دوستانه و حمایت از هنرجویانمان در تمامی مراحل اعتقاد داریم. افتخار ما تربیت هنرمندانی است که عشق به موسیقی را با دانش و مهارت ترکیب می‌کنند.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section (صفحه فروشگاه محصولات موسیقی) -->
+        <section id="products" class="py-16 md:py-24 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 text-purple-800" data-text-field="products-title">
+                    محصولات موسیقی
+                </h2>
+                <!-- Product grid will be populated by JavaScript -->
+                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Products will be dynamically loaded here from Firestore -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Enrollment Form Section (فرم ثبت‌نام هنرجو) -->
+        <section id="enroll" class="py-16 md:py-24 bg-purple-700 text-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12" data-text-field="enroll-title">
+                    فرم ثبت‌نام هنرجو
+                </h2>
+                <form class="max-w-xl mx-auto bg-purple-800 p-8 rounded-xl shadow-2xl">
+                    <div class="mb-6">
+                        <label for="name" class="block text-lg font-medium mb-2">نام:</label>
+                        <input type="text" id="name" name="name" class="w-full p-3 rounded-lg bg-purple-700 border border-purple-600 focus:ring-purple-500 focus:border-purple-500 text-white placeholder-purple-300" placeholder="نام خود را وارد کنید" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block text-lg font-medium mb-2">ایمیل:</label>
+                        <input type="email" id="email" name="email" class="w-full p-3 rounded-lg bg-purple-700 border border-purple-600 focus:ring-purple-500 focus:border-purple-500 text-white placeholder-purple-300" placeholder="ایمیل خود را وارد کنید" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="phone" class="block text-lg font-medium mb-2">شماره تماس:</label>
+                        <input type="tel" id="phone" name="phone" class="w-full p-3 rounded-lg bg-purple-700 border border-purple-600 focus:ring-purple-500 focus:border-purple-500 text-white placeholder-purple-300" placeholder="مثال: 09123456789" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="instrument" class="block text-lg font-medium mb-2">ساز مورد علاقه:</label>
+                        <select id="instrument" name="instrument" class="w-full p-3 rounded-lg bg-purple-700 border border-purple-600 focus:ring-purple-500 focus:border-purple-500 text-white" required>
+                            <option value="">انتخاب کنید...</option>
+                            <option value="guitar">گیتار</option>
+                            <option value="piano">پیانو</option>
+                            <option value="violin">ویولن</option>
+                            <option value="vocal">آواز</option>
+                            <option value="daf">دف</option>
+                            <option value="setar">سه‌تار</option>
+                            <option value="other">سایر</option>
+                        </select>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-lg font-medium mb-2">توضیحات:</label>
+                        <textarea id="message" name="message" rows="4" class="w-full p-3 rounded-lg bg-purple-700 border border-purple-600 focus:ring-purple-500 focus:border-purple-500 text-white placeholder-purple-300" placeholder="پیام یا سوال خود را اینجا بنویسید"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-full shadow-lg text-lg transition duration-300 transform hover:scale-105">
+                        ثبت نام نهایی
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Instructors Section (معرفی آموزشگاه و اساتید) -->
+        <section id="instructors" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 text-purple-800" data-text-field="instructors-title">
+                    اساتید برجسته هارمونی
+                </h2>
+                <div id="instructor-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Instructor Card 1 -->
+                    <div class="bg-gray-50 rounded-xl shadow-lg p-6 text-center card-hover transition duration-300">
+                        <img id="instructor1-image" src="https://placehold.co/150x150/9C27B0/FFFFFF?text=استاد+۱" alt="استاد گیتار" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                        <h3 class="text-2xl font-semibold mb-2 text-purple-700" data-text-field="instructor1-name">استاد احمدی</h3>
+                        <p class="text-purple-600 font-medium mb-3" data-text-field="instructor1-instrument">مدرس گیتار و تئوری موسیقی</p>
+                        <p class="text-gray-600 text-sm" data-text-field="instructor1-bio">
+                            استاد احمدی با بیش از ۲۰ سال تجربه تدریس، از برجسته‌ترین مدرسان گیتار کلاسیک در ایران هستند.
+                        </p>
+                    </div>
+                    <!-- Instructor Card 2 -->
+                    <div class="bg-gray-50 rounded-xl shadow-lg p-6 text-center card-hover transition duration-300">
+                        <img id="instructor2-image" src="https://placehold.co/150x150/9C27B0/FFFFFF?text=استاد+۲" alt="استاد پیانو" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                        <h3 class="text-2xl font-semibold mb-2 text-purple-700" data-text-field="instructor2-name">استاد رضایی</h3>
+                        <p class="text-purple-600 font-medium mb-3" data-text-field="instructor2-instrument">مدرس پیانو و هارمونی</p>
+                        <p class="text-gray-600 text-sm" data-text-field="instructor2-bio">
+                            خانم رضایی متخصص در تدریس پیانو به کودکان و بزرگسالان با رویکردهای نوین آموزشی.
+                        </p>
+                    </div>
+                    <!-- Instructor Card 3 -->
+                    <div class="bg-gray-50 rounded-xl shadow-lg p-6 text-center card-hover transition duration-300">
+                        <img id="instructor3-image" src="https://placehold.co/150x150/9C27B0/FFFFFF?text=استاد+۳" alt="استاد آواز" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                        <h3 class="text-2xl font-semibold mb-2 text-purple-700" data-text-field="instructor3-name">استاد کریمی</h3>
+                        <p class="text-purple-600 font-medium mb-3" data-text-field="instructor3-instrument">مدرس آواز و سلفژ</p>
+                        <p class="text-gray-600 text-sm" data-text-field="instructor3-bio">
+                            استاد کریمی با صدای گرم و آموزش‌های حرفه‌ای، شما را در مسیر خوانندگی همراهی می‌کند.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section (گالری تصاویر) -->
+        <section id="gallery" class="py-16 md:py-24 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 text-purple-800" data-text-field="gallery-title">
+                    گالری تصاویر
+                </h2>
+                <div id="image-gallery" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <img id="gallery-image-1" src="https://placehold.co/400x300/4A148C/FFFFFF?text=کلاس+گیتار" alt="کلاس گیتار" class="w-full h-auto rounded-lg shadow-md object-cover transform hover:scale-105 transition duration-500 cursor-pointer">
+                    <img id="gallery-image-2" src="https://placehold.co/400x300/4A148C/FFFFFF?text=اجرای+زنده" alt="اجرای زنده" class="w-full h-auto rounded-lg shadow-md object-cover transform hover:scale-105 transition duration-500 cursor-pointer">
+                    <img id="gallery-image-3" src="https://placehold.co/400x300/4A148C/FFFFFF?text=استودیو+ضبط" alt="استودیو ضبط" class="w-full h-auto rounded-lg shadow-md object-cover transform hover:scale-105 transition duration-500 cursor-pointer">
+                    <img id="gallery-image-4" src="https://placehold.co/400x300/4A148C/FFFFFF?text=لوازم+موسیقی" alt="لوازم موسیقی" class="w-full h-auto rounded-lg shadow-md object-cover transform hover:scale-105 transition duration-500 cursor-pointer">
+                    <img id="gallery-image-5" src="https://placehold.co/400x300/4A148C/FFFFFF?text=هنرجویان+در+حال+آموزش" alt="هنرجویان در حال آموزش" class="w-full h-auto rounded-lg shadow-md object-cover transform hover:scale-105 transition duration-500 cursor-pointer">
+                    <img id="gallery-image-6" src="https://placehold.co/400x300/4A148C/FFFFFF?text=دوره+پیانو" alt="دوره پیانو" class="w-full h-auto rounded-lg shadow-md object-cover transform hover:scale-105 transition duration-500 cursor-pointer">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section (صفحه تماس با ما) -->
+        <section id="contact" class="py-16 md:py-24 bg-purple-900 text-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12" data-text-field="contact-title">
+                    تماس با ما
+                </h2>
+                <div class="flex flex-col md:flex-row gap-10 items-start">
+                    <div class="md:w-1/2 bg-purple-800 p-8 rounded-xl shadow-2xl">
+                        <p class="text-lg mb-4" data-text-field="contact-description">
+                            برای اطلاعات بیشتر، سوالات یا رزرو کلاس، می‌توانید با ما تماس بگیرید یا فرم زیر را تکمیل کنید. ما در اسرع وقت پاسخگوی شما خواهیم بود.
+                        </p>
+                        <div class="space-y-4 text-lg">
+                            <p data-text-field="contact-phone"><i class="fas fa-phone-alt text-purple-300 mr-2"></i> شماره تماس: 021-12345678</p>
+                            <p data-text-field="contact-mobile"><i class="fas fa-mobile-alt text-purple-300 mr-2"></i> موبایل (فرم ارسال): <span id="form-submission-phone">0912-3456789</span></p>
+                            <p data-text-field="contact-email"><i class="fas fa-envelope text-purple-300 mr-2"></i> ایمیل: info@harmonymusicacademy.com</p>
+                            <p data-text-field="contact-address"><i class="fas fa-map-marker-alt text-purple-300 mr-2"></i> آدرس: تهران، خیابان ولیعصر، پلاک ۱۲۳، آموزشگاه هارمونی</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 bg-purple-800 p-8 rounded-xl shadow-2xl">
+                        <form>
+                            <div class="mb-6">
+                                <label for="contact-name" class="block text-lg font-medium mb-2">نام:</label>
+                                <input type="text" id="contact-name" name="name" class="w-full p-3 rounded-lg bg-purple-700 border border-purple-600 focus:ring-purple-500 focus:border-purple-500 text-white placeholder-purple-300" placeholder="نام خود را وارد کنید" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="contact-email" class="block text-lg font-medium mb-2">ایمیل:</label>
+                                <input type="email" id="contact-email" name="email" class="w-full p-3 rounded-lg bg-purple-700 border border-purple-600 focus:ring-purple-500 focus:border-purple-500 text-white placeholder-purple-300" placeholder="ایمیل خود را وارد کنید" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="contact-subject" class="block text-lg font-medium mb-2">موضوع:</label>
+                                <input type="text" id="contact-subject" name="subject" class="w-full p-3 rounded-lg bg-purple-700 border border-purple-600 focus:ring-purple-500 focus:border-purple-500 text-white placeholder-purple-300" placeholder="موضوع پیام" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="contact-message" class="block text-lg font-medium mb-2">پیام شما:</label>
+                                <textarea id="contact-message" name="message" rows="5" class="w-full p-3 rounded-lg bg-purple-700 border border-purple-600 focus:ring-purple-500 focus:border-purple-500 text-white placeholder-purple-300" placeholder="پیام خود را اینجا بنویسید"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full shadow-lg text-lg transition duration-300 transform hover:scale-105">
+                                ارسال پیام
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Status Section (صفحه پرداخت - فقط فرانت‌اند) -->
+        <section id="payment-status" class="py-16 md:py-24 bg-gray-200 hidden">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold text-center mb-12 text-purple-800" data-text-field="payment-status-title">
+                    وضعیت پرداخت
+                </h2>
+                <div id="payment-message" class="bg-white p-8 rounded-xl shadow-lg max-w-lg mx-auto">
+                    <p class="text-2xl font-semibold text-green-600 mb-4" data-text-field="payment-success-message">پرداخت شما با موفقیت انجام شد!</p>
+                    <p class="text-gray-700" data-text-field="payment-success-description">با تشکر از خرید شما. جزئیات سفارش به ایمیل شما ارسال گردید.</p>
+                    <button class="mt-6 bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full shadow-lg text-lg transition duration-300">
+                        بازگشت به صفحه اصلی
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4" data-text-field="footer-text">
+                &copy; 2025 آموزشگاه موسیقی هارمونی. تمامی حقوق محفوظ است.
+            </p>
+            <div class="flex justify-center space-x-6 text-2xl">
+                <a href="#" class="hover:text-purple-400 transition duration-300"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-purple-400 transition duration-300"><i class="fab fa-telegram-plane"></i></a>
+                <a href="#" class="hover:text-purple-400 transition duration-300"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Cart Button -->
+    <button id="cart-button">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+    </button>
+
+    <!-- Admin Panel Modal -->
+    <div id="admin-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden modal-backdrop opacity-0">
+        <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-2xl mx-4 transform scale-95 modal-content overflow-y-auto max-h-[90vh]">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-purple-800" id="modal-title">ورود به پنل مدیریت</h3>
+                <button id="close-modal-button" class="text-gray-500 hover:text-gray-700 text-3xl focus:outline-none">
+                    &times;
+                </button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="admin-login-form">
+                <div class="mb-6">
+                    <label for="admin-password" class="block text-lg font-medium text-gray-700 mb-2">رمز عبور:</label>
+                    <input type="password" id="admin-password" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500 text-gray-800" placeholder="رمز عبور را وارد کنید">
+                </div>
+                <button id="login-button" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full shadow-lg text-lg transition duration-300">
+                    ورود
+                </button>
+                <p id="login-message" class="text-red-500 text-center mt-4 hidden">رمز عبور اشتباه است!</p>
+            </div>
+
+            <!-- Admin Content Editor (Hidden by default) -->
+            <div id="admin-editor" class="hidden">
+                <p class="text-gray-700 mb-4">برای ویرایش، متون را از طریق فیلدهای زیر تغییر دهید. تغییر تصاویر و محصولات را نیز از بخش‌های مربوطه انجام دهید.</p>
+
+                <!-- Change Admin Password -->
+                <div class="bg-gray-100 p-6 rounded-lg mb-6">
+                    <h4 class="text-xl font-bold mb-4 text-purple-700">تغییر رمز عبور مدیریت</h4>
+                    <div class="mb-4">
+                        <label for="new-admin-password" class="block text-md font-medium text-gray-700 mb-2">رمز عبور جدید:</label>
+                        <input type="password" id="new-admin-password" class="w-full p-2 rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500 text-gray-800" placeholder="رمز عبور جدید">
+                    </div>
+                    <div class="mb-4">
+                        <label for="confirm-admin-password" class="block text-md font-medium text-gray-700 mb-2">تکرار رمز عبور جدید:</label>
+                        <input type="password" id="confirm-admin-password" class="w-full p-2 rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500 text-gray-800" placeholder="تکرار رمز عبور جدید">
+                    </div>
+                    <button id="change-password-button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg text-md transition duration-300">
+                        تغییر رمز عبور
+                    </button>
+                    <p id="password-change-message" class="text-center mt-3 hidden text-sm"></p>
+                </div>
+
+                <!-- Manage Main Text Content -->
+                <div class="bg-gray-100 p-6 rounded-lg mb-6">
+                    <h4 class="text-xl font-bold mb-4 text-purple-700">مدیریت متون اصلی سایت</h4>
+                    <div class="mb-4">
+                        <label for="admin-hero-title" class="block text-md font-medium text-gray-700 mb-2">عنوان اصلی (Hero):</label>
+                        <input type="text" id="admin-hero-title" class="w-full p-2 rounded-lg border border-gray-300" data-text-editor-field="hero-title">
+                    </div>
+                    <div class="mb-4">
+                        <label for="admin-hero-subtitle" class="block text-md font-medium text-gray-700 mb-2">زیرعنوان اصلی (Hero):</label>
+                        <textarea id="admin-hero-subtitle" class="w-full p-2 rounded-lg border border-gray-300" rows="3" data-text-editor-field="hero-subtitle"></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label for="admin-about-title" class="block text-md font-medium text-gray-700 mb-2">عنوان درباره ما:</label>
+                        <input type="text" id="admin-about-title" class="w-full p-2 rounded-lg border border-gray-300" data-text-editor-field="about-title">
+                    </div>
+                    <div class="mb-4">
+                        <label for="admin-about-description" class="block text-md font-medium text-gray-700 mb-2">توضیحات درباره ما:</label>
+                        <textarea id="admin-about-description" class="w-full p-2 rounded-lg border border-gray-300" rows="5" data-text-editor-field="about-description"></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label for="admin-products-title" class="block text-md font-medium text-gray-700 mb-2">عنوان محصولات:</label>
+                        <input type="text" id="admin-products-title" class="w-full p-2 rounded-lg border border-gray-300" data-text-editor-field="products-title">
+                    </div>
+                    <div class="mb-4">
+                        <label for="admin-enroll-title" class="block text-md font-medium text-gray-700 mb-2">عنوان فرم ثبت‌نام:</label>
+                        <input type="text" id="admin-enroll-title" class="w-full p-2 rounded-lg border border-gray-300" data-text-editor-field="enroll-title">
+                    </div>
+                    <div class="mb-4">
+                        <label for="admin-instructors-title" class="block text-md font-medium text-gray-700 mb-2">عنوان اساتید:</label>
+                        <input type="text" id="admin-instructors-title" class="w-full p-2 rounded-lg border border-gray-300" data-text-editor-field="instructors-title">
+                    </div>
+                    <div class="mb-4">
+                        <label for="admin-gallery-title" class="block text-md font-medium text-gray-700 mb-2">عنوان گالری:</label>
+                        <input type="text" id="admin-gallery-title" class="w-full p-2 rounded-lg border border-gray-300" data-text-editor-field="gallery-title">
+                    </div>
+                    <div class="mb-4">
+                        <label for="admin-contact-title" class="block text-md font-medium text-gray-700 mb-2">عنوان تماس با ما:</label>
+                        <input type="text" id="admin-contact-title" class="w-full p-2 rounded-lg border border-gray-300" data-text-editor-field="contact-title">
+                    </div>
+                     <div class="mb-4">
+                        <label for="admin-contact-description" class="block text-md font-medium text-gray-700 mb-2">توضیحات تماس با ما:</label>
+                        <textarea id="admin-contact-description" class="w-full p-2 rounded-lg border border-gray-300" rows="3" data-text-editor-field="contact-description"></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label for="admin-contact-phone" class="block text-md font-medium text-gray-700 mb-2">شماره تماس (دفتر):</label>
+                        <input type="text" id="admin-contact-phone" class="w-full p-2 rounded-lg border border-gray-300" data-text-editor-field="contact-phone">
+                    </div>
+                    <div class="mb-4">
+                        <label for="admin-contact-email" class="block text-md font-medium text-gray-700 mb-2">ایمیل تماس:</label>
+                        <input type="text" id="admin-contact-email" class="w-full p-2 rounded-lg border border-gray-300" data-text-editor-field="contact-email">
+                    </div>
+                    <div class="mb-4">
+                        <label for="admin-contact-address" class="block text-md font-medium text-gray-700 mb-2">آدرس تماس:</label>
+                        <textarea id="admin-contact-address" class="w-full p-2 rounded-lg border border-gray-300" rows="3" data-text-editor-field="contact-address"></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label for="admin-payment-status-title" class="block text-md font-medium text-gray-700 mb-2">عنوان وضعیت پرداخت:</label>
+                        <input type="text" id="admin-payment-status-title" class="w-full p-2 rounded-lg border border-gray-300" data-text-editor-field="payment-status-title">
+                    </div>
+                    <div class="mb-4">
+                        <label for="admin-payment-success-message" class="block text-md font-medium text-gray-700 mb-2">پیام موفقیت پرداخت:</label>
+                        <input type="text" id="admin-payment-success-message" class="w-full p-2 rounded-lg border border-gray-300" data-text-editor-field="payment-success-message">
+                    </div>
+                     <div class="mb-4">
+                        <label for="admin-payment-success-description" class="block text-md font-medium text-gray-700 mb-2">توضیحات موفقیت پرداخت:</label>
+                        <textarea id="admin-payment-success-description" class="w-full p-2 rounded-lg border border-gray-300" rows="3" data-text-editor-field="payment-success-description"></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label for="admin-footer-text" class="block text-md font-medium text-gray-700 mb-2">متن فوتر:</label>
+                        <textarea id="admin-footer-text" class="w-full p-2 rounded-lg border border-gray-300" rows="3" data-text-editor-field="footer-text"></textarea>
+                    </div>
+
+                    <h5 class="text-lg font-bold mt-6 mb-3 text-purple-700">متون اساتید</h5>
+                    <div id="instructor-text-editor-container">
+                        <!-- Instructor text inputs will be dynamically added here -->
+                    </div>
+                    <button id="save-all-text-button" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full shadow-lg text-md transition duration-300 mt-4">
+                        ذخیره همه متون اصلی
+                    </button>
+                    <p id="text-message" class="text-center mt-3 hidden text-sm"></p>
+                </div>
+
+
+                <!-- Change Image Files -->
+                <div class="bg-gray-100 p-6 rounded-lg mb-6">
+                    <h4 class="text-xl font-bold mb-4 text-purple-700">تغییر تصاویر (آپلود فایل)</h4>
+
+                    <div class="mb-4">
+                        <label for="hero-image-upload" class="block text-md font-medium text-gray-700 mb-2">تصویر پس‌زمینه Hero:</label>
+                        <input type="file" id="hero-image-upload" accept="image/*" class="w-full p-2 rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500 text-gray-800">
+                        <img id="hero-image-preview" class="mt-2 w-32 h-auto rounded-md shadow-sm" src="" alt="پیش‌نمایش تصویر Hero">
+                    </div>
+                    <div class="mb-4">
+                        <label for="about-image-upload" class="block text-md font-medium text-gray-700 mb-2">تصویر بخش درباره ما:</label>
+                        <input type="file" id="about-image-upload" accept="image/*" class="w-full p-2 rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500 text-gray-800">
+                        <img id="about-image-preview" class="mt-2 w-32 h-auto rounded-md shadow-sm" src="" alt="پیش‌نمایش تصویر درباره ما">
+                    </div>
+                    <div class="mb-4">
+                        <label for="instructor1-image-upload" class="block text-md font-medium text-gray-700 mb-2">تصویر استاد احمدی:</label>
+                        <input type="file" id="instructor1-image-upload" accept="image/*" class="w-full p-2 rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500 text-gray-800">
+                        <img id="instructor1-image-preview" class="mt-2 w-24 h-24 rounded-full object-cover shadow-sm" src="" alt="پیش‌نمایش استاد احمدی">
+                    </div>
+                    <div class="mb-4">
+                        <label for="instructor2-image-upload" class="block text-md font-medium text-gray-700 mb-2">تصویر استاد رضایی:</label>
+                        <input type="file" id="instructor2-image-upload" accept="image/*" class="w-full p-2 rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500 text-gray-800">
+                        <img id="instructor2-image-preview" class="mt-2 w-24 h-24 rounded-full object-cover shadow-sm" src="" alt="پیش‌نمایش استاد رضایی">
+                    </div>
+                    <div class="mb-4">
+                        <label for="instructor3-image-upload" class="block text-md font-medium text-gray-700 mb-2">تصویر استاد کریمی:</label>
+                        <input type="file" id="instructor3-image-upload" accept="image/*" class="w-full p-2 rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500 text-gray-800">
+                        <img id="instructor3-image-preview" class="mt-2 w-24 h-24 rounded-full object-cover shadow-sm" src="" alt="پیش‌نمایش استاد کریمی">
+                    </div>
+
+                    <h5 class="text-lg font-bold mt-6 mb-3 text-purple-700">تصاویر گالری</h5>
+                    <div id="gallery-image-editor-container">
+                        <!-- Gallery image inputs will be dynamically added here -->
+                    </div>
+                    <p id="image-upload-message" class="text-center mt-3 hidden text-sm"></p>
+                </div>
+
+                <!-- Change Form Submission Phone Number and Payment Info -->
+                <div class="bg-gray-100 p-6 rounded-lg mb-6">
+                    <h4 class="text-xl font-bold mb-4 text-purple-700">تغییر اطلاعات تماس و پرداخت</h4>
+                    <div class="mb-4">
+                        <label for="admin-form-phone" class="block text-md font-medium text-gray-700 mb-2">شماره تماس (ارسال فرم و پرداخت):</label>
+                        <input type="text" id="admin-form-phone" class="w-full p-2 rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500 text-gray-800" placeholder="شماره تماس جدید" data-field-editor="form-submission-phone">
+                    </div>
+                     <div class="mb-4">
+                        <label for="admin-bank-card" class="block text-md font-medium text-gray-700 mb-2">شماره کارت بانکی:</label>
+                        <input type="text" id="admin-bank-card" class="w-full p-2 rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500 text-gray-800" placeholder="شماره کارت جدید" data-field-editor="bank-card-number">
+                    </div>
+                    <div class="mb-4">
+                        <label for="admin-bank-id" class="block text-md font-medium text-gray-700 mb-2">شناسه بانکی (مثلاً شماره شبا/کد ملی):</label>
+                        <input type="text" id="admin-bank-id" class="w-full p-2 rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500 text-gray-800" placeholder="شناسه بانکی جدید" data-field-editor="bank-id">
+                    </div>
+                    <button id="save-contact-payment-info-button" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full shadow-lg text-md transition duration-300">
+                        ذخیره اطلاعات تماس و پرداخت
+                    </button>
+                    <p id="contact-payment-message" class="text-center mt-3 hidden text-sm"></p>
+                </div>
+
+                <!-- Manage Products -->
+                <div class="bg-gray-100 p-6 rounded-lg mb-6">
+                    <h4 class="text-xl font-bold mb-4 text-purple-700">مدیریت محصولات</h4>
+                    <div id="product-editor-container">
+                        <!-- Product editor fields will be dynamically added here -->
+                    </div>
+                    <button id="add-product-button" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full shadow-lg text-md transition duration-300 mt-4">
+                        افزودن محصول جدید
+                    </button>
+                    <button id="save-products-button" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full shadow-lg text-md transition duration-300 mt-4">
+                        ذخیره همه محصولات
+                    </button>
+                    <p id="products-message" class="text-center mt-3 hidden text-sm"></p>
+                </div>
+
+                <button id="logout-button" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full shadow-lg text-lg mt-4 transition duration-300">
+                    خروج از پنل مدیریت
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden modal-backdrop opacity-0">
+        <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-lg mx-4 transform scale-95 modal-content overflow-y-auto max-h-[90vh]">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-purple-800">سبد خرید شما</h3>
+                <button id="close-cart-modal-button" class="text-gray-500 hover:text-gray-700 text-3xl focus:outline-none">
+                    &times;
+                </button>
+            </div>
+            <div id="cart-items-container" class="space-y-4 mb-6">
+                <!-- Cart items will be rendered here -->
+                <p class="text-gray-600 text-center" id="empty-cart-message">سبد خرید شما خالی است.</p>
+            </div>
+            <div id="cart-summary" class="border-t pt-4 flex justify-between items-center text-lg font-bold text-gray-800">
+                <span>جمع کل:</span>
+                <span id="cart-total">0 تومان</span>
+            </div>
+            <div class="mt-6 flex justify-end space-x-3">
+                <button id="clear-cart-button" class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-full shadow-lg transition duration-300">
+                    پاک کردن سبد
+                </button>
+                <button id="checkout-button" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full shadow-lg transition duration-300">
+                    تکمیل خرید
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Info Modal -->
+    <div id="checkout-info-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[60] hidden modal-backdrop opacity-0">
+        <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-md mx-4 transform scale-95 modal-content">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-purple-800">اطلاعات تکمیل خرید</h3>
+                <button id="close-checkout-modal-button" class="text-gray-500 hover:text-gray-700 text-3xl focus:outline-none">
+                    &times;
+                </button>
+            </div>
+            <div class="text-lg text-gray-700 space-y-4">
+                <p>سفارش شما با موفقیت ثبت شد!</p>
+                <p>لطفاً مبلغ فاکتور را به اطلاعات زیر واریز نمایید:</p>
+                <p class="font-bold text-gray-800"><i class="fas fa-credit-card text-purple-600 mr-2"></i> شماره کارت: <span id="display-bank-card"></span></p>
+                <p class="font-bold text-gray-800"><i class="fas fa-id-card-alt text-purple-600 mr-2"></i> شناسه واریز/کد ملی: <span id="display-bank-id"></span></p>
+                <p class="font-bold text-gray-800"><i class="fas fa-phone-alt text-purple-600 mr-2"></i> شماره تلفن تماس: <span id="display-bank-phone"></span></p>
+                <p class="text-sm text-gray-500 mt-4">پس از واریز، برای پیگیری با شماره تلفن تماس حاصل فرمایید. با تشکر از خرید شما!</p>
+            </div>
+            <button id="checkout-info-ok-button" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full shadow-lg text-lg transition duration-300 mt-8">
+                متوجه شدم
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Message Box (for alerts, confirmations) -->
+    <div id="message-box" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[100] hidden modal-backdrop opacity-0">
+        <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-sm mx-4 transform scale-95 modal-content text-center">
+            <h3 id="message-box-title" class="text-2xl font-bold mb-4 text-purple-800"></h3>
+            <p id="message-box-content" class="text-gray-700 mb-6"></p>
+            <button id="message-box-ok-button" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transition duration-300">
+                تایید
+            </button>
+            <button id="message-box-cancel-button" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-6 rounded-full shadow-lg ml-4 hidden transition duration-300">
+                لغو
+            </button>
+        </div>
+    </div>
+
+    <!-- Firebase SDK (Version 11.6.1 is recent and stable) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Global variables for Firebase (will be provided by Canvas environment)
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        // Initialize Firebase
+        let app, db, auth;
+        let userId = null; // Will store the authenticated user ID or a random ID
+        let currentAdminPassword = 'HARMONY'; // Default admin password
+        let websiteContentData = {}; // To store the latest content from Firestore
+        let products = []; // Array to hold product data
+        let cart = JSON.parse(localStorage.getItem('shoppingCart')) || []; // Load cart from localStorage
+
+        // Helper function for modal animations
+        function openModalAnimation(modalElement) {
+            modalElement.classList.remove('hidden');
+            setTimeout(() => {
+                modalElement.classList.add('opacity-100');
+                modalElement.classList.remove('opacity-0');
+                const modalContent = modalElement.querySelector('.modal-content');
+                if (modalContent) {
+                    modalContent.classList.remove('scale-95');
+                    modalContent.classList.add('scale-100');
+                }
+            }, 10);
+        }
+
+        function closeModalAnimation(modalElement, callback = null) {
+            modalElement.classList.add('opacity-0');
+            const modalContent = modalElement.querySelector('.modal-content');
+            if (modalContent) {
+                modalContent.classList.remove('scale-100');
+                modalContent.classList.add('scale-95');
+            }
+
+            modalElement.addEventListener('transitionend', function handler() {
+                modalElement.classList.add('hidden');
+                modalElement.removeEventListener('transitionend', handler);
+                if (callback) callback();
+            }, { once: true });
+        }
+
+
+        // Function to show custom message box
+        function showMessageBox(title, content, type = 'alert', onConfirm = null, onCancel = null) {
+            const msgBox = document.getElementById('message-box');
+            const msgBoxTitle = document.getElementById('message-box-title');
+            const msgBoxContent = document.getElementById('message-box-content');
+            const okButton = document.getElementById('message-box-ok-button');
+            const cancelButton = document.getElementById('message-box-cancel-button');
+
+            if (!msgBox || !msgBoxTitle || !msgBoxContent || !okButton || !cancelButton) {
+                console.error("Critical: Message box elements not found. Cannot display message.");
+                return;
+            }
+
+            msgBoxTitle.textContent = title;
+            msgBoxContent.textContent = content;
+
+            openModalAnimation(msgBox);
+
+            okButton.onclick = () => {
+                closeModalAnimation(msgBox, onConfirm);
+            };
+            cancelButton.onclick = () => {
+                closeModalAnimation(msgBox, onCancel);
+            };
+
+            if (type === 'confirm') {
+                cancelButton.classList.remove('hidden');
+            } else {
+                cancelButton.classList.add('hidden');
+            }
+        }
+
+        // Helper to convert file to Base64
+        async function fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                if (!file) {
+                    resolve(null); // Resolve with null if no file
+                    return;
+                }
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+                reader.readAsDataURL(file);
+            });
+        }
+
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // Initialize Firebase App
+                app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+
+                // Authenticate user
+                if (initialAuthToken) {
+                    await signInWithCustomToken(auth, initialAuthToken);
+                } else {
+                    await signInAnonymously(auth);
+                }
+
+                // Listen for auth state changes to get userId and load data
+                onAuthStateChanged(auth, (user) => {
+                    if (user) {
+                        userId = user.uid;
+                        console.log("Firebase Auth Ready. User ID:", userId);
+                        // Display userId for multi-user apps (as per instructions)
+                        const footerTextElement = document.querySelector('[data-text-field="footer-text"]'); // Changed to data-text-field
+                        if (footerTextElement) {
+                             // Only append if not already appended
+                            if (!document.getElementById('display-user-id')) {
+                                const userIdDisplay = document.createElement('span');
+                                userIdDisplay.id = 'display-user-id';
+                                userIdDisplay.className = 'block text-xs mt-2 text-gray-400';
+                                userIdDisplay.textContent = `شناسه کاربری شما: ${userId}`;
+                                footerTextElement.insertAdjacentElement('afterend', userIdDisplay);
+                            }
+                        }
+                        loadContentFromFirestore();
+                    } else {
+                        // User is signed out or anonymous. Generate a random UUID for anonymous users.
+                        userId = crypto.randomUUID();
+                        console.log("Firebase Auth Ready (Anonymous). Generated User ID:", userId);
+                        loadContentFromFirestore();
+                    }
+                });
+
+            } catch (error) {
+                console.error("خطا در راه‌اندازی فایربیس:", error);
+                showMessageBox("خطا", "خطا در راه‌اندازی سیستم مدیریت محتوا. لطفا دوباره تلاش کنید.", 'alert');
+            }
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+
+
+            // Admin panel functionality
+            const adminButton = document.getElementById('admin-button');
+            const adminModal = document.getElementById('admin-modal');
+            const closeModalButton = document.getElementById('close-modal-button');
+            const adminLoginForm = document.getElementById('admin-login-form');
+            const adminEditor = document.getElementById('admin-editor');
+            const adminPasswordInput = document.getElementById('admin-password');
+            const loginButton = document.getElementById('login-button');
+            const loginMessage = document.getElementById('login-message');
+            const logoutButton = document.getElementById('logout-button');
+            const modalTitle = document.getElementById('modal-title');
+
+            if (adminButton && adminModal && closeModalButton && adminLoginForm && adminEditor && adminPasswordInput && loginButton && loginMessage && logoutButton && modalTitle) {
+                adminButton.addEventListener('click', () => {
+                    openModalAnimation(adminModal);
+                    adminLoginForm.classList.remove('hidden');
+                    adminEditor.classList.add('hidden');
+                    loginMessage.classList.add('hidden');
+                    adminPasswordInput.value = '';
+                    modalTitle.textContent = "ورود به پنل مدیریت";
+                });
+
+                closeModalButton.addEventListener('click', () => {
+                    closeModalAnimation(adminModal);
+                });
+
+                loginButton.addEventListener('click', () => {
+                    if (adminPasswordInput.value === currentAdminPassword) {
+                        adminLoginForm.classList.add('hidden');
+                        adminEditor.classList.remove('hidden');
+                        loginMessage.classList.add('hidden');
+                        modalTitle.textContent = "پنل مدیریت محتوا";
+                        // setupContentEditing(); // No longer needed for text fields
+                        populateAdminPanelForms(); // Populate form fields in admin panel
+                    } else {
+                        loginMessage.classList.remove('hidden');
+                    }
+                });
+
+                logoutButton.addEventListener('click', () => {
+                    showMessageBox(
+                        "خروج از پنل",
+                        "آیا از خروج از پنل مدیریت مطمئن هستید؟",
+                        "confirm",
+                        () => {
+                            closeModalAnimation(adminModal, () => {
+                                adminLoginForm.classList.remove('hidden');
+                                adminEditor.classList.add('hidden');
+                                adminPasswordInput.value = '';
+                                loginMessage.classList.add('hidden');
+                                modalTitle.textContent = "ورود به پنل مدیریت";
+                                // disableContentEditing(); // No longer needed for text fields
+                            });
+                        }
+                    );
+                });
+            } else {
+                console.error("One or more admin panel core elements were not found.");
+            }
+
+
+            // Password change functionality
+            const newAdminPasswordInput = document.getElementById('new-admin-password');
+            const confirmAdminPasswordInput = document.getElementById('confirm-admin-password');
+            const changePasswordButton = document.getElementById('change-password-button');
+            const passwordChangeMessage = document.getElementById('password-change-message');
+
+            if (newAdminPasswordInput && confirmAdminPasswordInput && changePasswordButton && passwordChangeMessage) {
+                changePasswordButton.addEventListener('click', async () => {
+                    const newPass = newAdminPasswordInput.value;
+                    const confirmPass = confirmAdminPasswordInput.value;
+
+                    if (newPass === '' || confirmPass === '') {
+                        passwordChangeMessage.textContent = 'لطفا هر دو فیلد رمز عبور را پر کنید.';
+                        passwordChangeMessage.className = 'text-red-500 text-center mt-4';
+                        passwordChangeMessage.classList.remove('hidden');
+                        return;
+                    }
+
+                    if (newPass !== confirmPass) {
+                        passwordChangeMessage.textContent = 'رمز عبور جدید و تکرار آن یکسان نیستند.';
+                        passwordChangeMessage.className = 'text-red-500 text-center mt-4';
+                        passwordChangeMessage.classList.remove('hidden');
+                        return;
+                    }
+
+                    currentAdminPassword = newPass;
+                    await saveAdminPassword(newPass);
+                    passwordChangeMessage.textContent = 'رمز عبور با موفقیت تغییر یافت!';
+                    passwordChangeMessage.className = 'text-green-600 text-center mt-4';
+                    passwordChangeMessage.classList.remove('hidden');
+                    newAdminPasswordInput.value = '';
+                    confirmAdminPasswordInput.value = '';
+                });
+            } else {
+                console.warn("Password change elements not found. Admin password change functionality might not work.");
+            }
+
+
+            // --- Firestore Integration ---
+
+            // Firestore document path for admin password (private data)
+            const getAdminPasswordDocRef = () => {
+                if (!db || !userId) {
+                    console.error("Firestore or User ID not initialized.");
+                    return null;
+                }
+                return doc(db, `artifacts/${appId}/users/${userId}/adminConfig`, 'password');
+            };
+
+            // Firestore document path for website content (public data)
+            const getContentDocRef = () => {
+                if (!db || !userId) {
+                    console.error("Firestore or User ID not initialized.");
+                    return null;
+                }
+                // Using a public collection path for content that multiple users might edit, or just one user storing public data
+                return doc(db, `artifacts/${appId}/public/data/websiteContent`, 'main');
+            };
+
+            // Save admin password to Firestore
+            async function saveAdminPassword(password) {
+                const docRef = getAdminPasswordDocRef();
+                if (!docRef) return;
+                try {
+                    await setDoc(docRef, { password: password });
+                    console.log("رمز عبور مدیر در فایربیس ذخیره شد.");
+                } catch (e) {
+                    console.error("خطا در ذخیره رمز عبور مدیر: ", e);
+                    showMessageBox("خطا", "خطا در ذخیره رمز عبور. لطفا دوباره تلاش کنید.", 'alert');
+                }
+            }
+
+            // Load admin password from Firestore
+            async function loadAdminPassword() {
+                const docRef = getAdminPasswordDocRef();
+                if (!docRef) return;
+                try {
+                    const docSnap = await getDoc(docRef);
+                    if (docSnap.exists()) {
+                        const storedPassword = docSnap.data().password;
+                        if (storedPassword) {
+                            currentAdminPassword = storedPassword;
+                            console.log("رمز عبور مدیر از فایربیس بارگذاری شد.");
+                        }
+                    } else {
+                        console.log("رمز عبور مدیر در فایربیس یافت نشد. استفاده از رمز پیش‌فرض.");
+                        // If no password exists, save the default one
+                        await saveAdminPassword(currentAdminPassword);
+                    }
+                } catch (e) {
+                    console.error("خطا در بارگذاری رمز عبور مدیر: ", e);
+                    showMessageBox("خطا", "خطا در بارگذاری رمز عبور. لطفا صفحه را رفرش کنید.", 'alert');
+                }
+            }
+
+            // Save content to Firestore
+            async function saveContentToFirestore(field, value) {
+                const docRef = getContentDocRef();
+                if (!docRef) return;
+                try {
+                    await setDoc(docRef, { [field]: value }, { merge: true });
+                    console.log(`فیلد "${field}" با موفقیت ذخیره شد.`);
+                } catch (e) {
+                    console.error(`خطا در ذخیره فیلد "${field}": `, e);
+                    showMessageBox("خطا", `خطا در ذخیره ${field}. لطفا دوباره تلاش کنید.`, 'alert');
+                }
+            }
+
+            // Load all content from Firestore
+            async function loadContentFromFirestore() {
+                if (!db || !userId) {
+                    console.log("Waiting for Firebase and User ID to be ready...");
+                    return;
+                }
+
+                await loadAdminPassword();
+
+                const contentDocRef = getContentDocRef();
+                if (!contentDocRef) return;
+
+                onSnapshot(contentDocRef, (docSnap) => {
+                    if (docSnap.exists()) {
+                        websiteContentData = docSnap.data();
+                        console.log("محتوا از فایربیس بارگذاری/به‌روز شد:", websiteContentData);
+
+                        // Update text content (using data-text-field)
+                        document.querySelectorAll('[data-text-field]').forEach(element => {
+                            const field = element.dataset.textField;
+                            if (element && websiteContentData[field] !== undefined && element.textContent !== websiteContentData[field]) {
+                                element.textContent = websiteContentData[field];
+                            }
+                        });
+
+                        // Update image URLs or Base64 (using IDs as before)
+                        const imageElements = [
+                            { id: 'hero-bg', dataField: 'hero-bg-data' }, // This is the div
+                            { id: 'about-image', dataField: 'about-image-url' },
+                            { id: 'instructor1-image', dataField: 'instructor1-image-url' },
+                            { id: 'instructor2-image', dataField: 'instructor2-image-url' },
+                            { id: 'instructor3-image', dataField: 'instructor3-image-url' },
+                            { id: 'gallery-image-1', dataField: 'gallery-image-1' },
+                            { id: 'gallery-image-2', dataField: 'gallery-image-2' },
+                            { id: 'gallery-image-3', dataField: 'gallery-image-3' },
+                            { id: 'gallery-image-4', dataField: 'gallery-image-4' },
+                            { id: 'gallery-image-5', dataField: 'gallery-image-5' },
+                            { id: 'gallery-image-6', dataField: 'gallery-image-6' },
+                        ];
+
+                        imageElements.forEach(item => {
+                            const element = document.getElementById(item.id);
+                            if (element) {
+                                const imageData = websiteContentData[item.dataField];
+                                if (imageData) {
+                                    if (item.id === 'hero-bg') {
+                                        element.style.backgroundImage = `url('${imageData}')`;
+                                    } else {
+                                        element.src = imageData;
+                                    }
+                                } else {
+                                    // Fallback to initial placeholders if image data is cleared or not set
+                                    const initialSrc = element.getAttribute('src');
+                                    if (item.id === 'hero-bg') {
+                                        element.style.backgroundImage = `url('https://placehold.co/1920x1080/4A148C/FFFFFF?text=تصویر+پس‌زمینه+گیتار')`; // Default
+                                    } else if (initialSrc && initialSrc.startsWith('https://placehold.co')) {
+                                        element.src = initialSrc; // Keep original placeholder
+                                    }
+                                }
+                            }
+                        });
+
+
+                        // Update products
+                        if (websiteContentData['products'] && Array.isArray(websiteContentData['products'])) {
+                            products = websiteContentData['products'];
+                            renderProducts();
+                        } else {
+                            saveInitialContent(); // If no products, save initial
+                        }
+
+                        // Update form submission phone and payment info
+                        const formSubmissionPhoneElement = document.getElementById('form-submission-phone');
+                        if (formSubmissionPhoneElement && websiteContentData['form-submission-phone'] !== undefined) {
+                            formSubmissionPhoneElement.textContent = websiteContentData['form-submission-phone'];
+                        }
+                        const displayBankCardElement = document.getElementById('display-bank-card');
+                        if (displayBankCardElement && websiteContentData['bank-card-number'] !== undefined) {
+                            displayBankCardElement.textContent = websiteContentData['bank-card-number'];
+                        }
+                        const displayBankIdElement = document.getElementById('display-bank-id');
+                        if (displayBankIdElement && websiteContentData['bank-id'] !== undefined) {
+                            displayBankIdElement.textContent = websiteContentData['bank-id'];
+                        }
+                        const displayBankPhoneElement = document.getElementById('display-bank-phone');
+                        if (displayBankPhoneElement && websiteContentData['bank-phone-number'] !== undefined) {
+                            displayBankPhoneElement.textContent = websiteContentData['bank-phone-number'];
+                        }
+
+
+                    } else {
+                        console.log("هیچ محتوایی در فایربیس یافت نشد. استفاده از محتوای پیش‌فرض HTML و ذخیره آن.");
+                        saveInitialContent();
+                    }
+                }, (error) => {
+                    console.error("خطا در دریافت لحظه‌ای محتوا از فایربیس:", error);
+                    showMessageBox("خطا", "خطا در بارگذاری محتوا. لطفا صفحه را رفرش کنید.", 'alert');
+                });
+            }
+
+            // Function to save initial content if the Firestore document doesn't exist
+            function saveInitialContent() {
+                const initialData = {};
+
+                // Capture initial text content using data-text-field
+                document.querySelectorAll('[data-text-field]').forEach(element => {
+                    if (element && element.dataset.textField) {
+                        // For instructor details that are dynamically generated, capture them from the default HTML
+                        if (element.id && (element.id.startsWith('instructor') || element.id.startsWith('product'))) {
+                           // These are handled by specific product/instructor logic in websiteContentData
+                        } else {
+                            initialData[element.dataset.textField] = element.textContent.trim();
+                        }
+                    }
+                });
+
+                // Default image data (URL placeholders)
+                initialData['hero-bg-data'] = 'https://placehold.co/1920x1080/4A148C/FFFFFF?text=تصویر+پس‌زمینه+گیتار';
+                initialData['about-image-url'] = 'https://placehold.co/600x400/9C27B0/FFFFFF?text=درباره+آکادمی';
+                initialData['instructor1-image-url'] = 'https://placehold.co/150x150/9C27B0/FFFFFF?text=استاد+۱';
+                initialData['instructor2-image-url'] = 'https://placehold.co/150x150/9C27B0/FFFFFF?text=استاد+۲';
+                initialData['instructor3-image-url'] = 'https://placehold.co/150x150/9C27B0/FFFFFF?text=استاد+۳';
+                initialData['gallery-image-1'] = 'https://placehold.co/400x300/4A148C/FFFFFF?text=کلاس+گیتار';
+                initialData['gallery-image-2'] = 'https://placehold.co/400x300/4A148C/FFFFFF?text=اجرای+زنده';
+                initialData['gallery-image-3'] = 'https://placehold.co/400x300/4A148C/FFFFFF?text=استودیو+ضبط';
+                initialData['gallery-image-4'] = 'https://placehold.co/400x300/4A148C/FFFFFF?text=لوازم+موسیقی';
+                initialData['gallery-image-5'] = 'https://placehold.co/400x300/4A148C/FFFFFF?text=هنرجویان+در+حال+آموزش';
+                initialData['gallery-image-6'] = 'https://placehold.co/400x300/4A148C/FFFFFF?text=دوره+پیانو';
+
+                // Initial products data
+                products = [
+                    { id: 'prod1', name: 'گیتار کلاسیک', description: 'گیتار کلاسیک با کیفیت عالی برای شروع نوازندگی. صدای گرم و دلنشین.', price: '3,500,000 تومان', imageUrl: 'https://placehold.co/400x300/673AB7/FFFFFF?text=گیتار' },
+                    { id: 'prod2', name: 'پیانو دیجیتال', description: 'پیانو دیجیتال با کلاویه‌های سنگین و صدای واقعی پیانو آکوستیک.', price: '12,000,000 تومان', imageUrl: 'https://placehold.co/400x300/673AB7/FFFFFF?text=پیانو' },
+                    { id: 'prod3', name: 'ویولن آموزشی', description: 'ویولن مناسب برای هنرجویان مبتدی تا متوسط.', price: '4,000,000 تومان', imageUrl: 'https://placehold.co/400x300/673AB7/FFFFFF?text=ویولن' }
+                ];
+                initialData['products'] = products;
+
+                // Initial instructor text data
+                initialData['instructor1-name'] = 'استاد احمدی';
+                initialData['instructor1-instrument'] = 'مدرس گیتار و تئوری موسیقی';
+                initialData['instructor1-bio'] = 'استاد احمدی با بیش از ۲۰ سال تجربه تدریس، از برجسته‌ترین مدرسان گیتار کلاسیک در ایران هستند.';
+                initialData['instructor2-name'] = 'استاد رضایی';
+                initialData['instructor2-instrument'] = 'مدرس پیانو و هارمونی';
+                initialData['instructor2-bio'] = 'خانم رضایی متخصص در تدریس پیانو به کودکان و بزرگسالان با رویکردهای نوین آموزشی.';
+                initialData['instructor3-name'] = 'استاد کریمی';
+                initialData['instructor3-instrument'] = 'مدرس آواز و سلفژ';
+                initialData['instructor3-bio'] = 'استاد کریمی با صدای گرم و آموزش‌های حرفه‌ای، شما را در مسیر خوانندگی همراهی می‌کند.';
+
+
+                // Initial form submission phone and payment info
+                initialData['form-submission-phone'] = '123456789';
+                initialData['bank-card-number'] = '1234-5678-9012-3456';
+                initialData['bank-id'] = '123456789'; // Example: National ID or Bank ID
+                initialData['bank-phone-number'] = '123456789'; // Same as form submission phone
+
+                const contentDocRef = getContentDocRef();
+                if (contentDocRef) {
+                    setDoc(contentDocRef, initialData)
+                        .then(() => console.log("محتوای اولیه در فایربیس ذخیره شد."))
+                        .catch(e => console.error("خطا در ذخیره محتوای اولیه: ", e));
+                }
+            }
+
+            // --- Text Content Editing Functions (in admin modal) ---
+            // Removed setupContentEditing and disableContentEditing from main page context
+
+            // --- Admin Panel Form Population & Saving (for images, text, and payment info) ---
+            function populateAdminPanelForms() {
+                // Populate main text content inputs
+                const textFields = [
+                    'hero-title', 'hero-subtitle', 'about-title', 'about-description',
+                    'products-title', 'enroll-title', 'instructors-title', 'gallery-title',
+                    'contact-title', 'contact-description', 'contact-phone',
+                    'contact-email', 'contact-address', 'payment-status-title',
+                    'payment-success-message', 'payment-success-description', 'footer-text'
+                ];
+
+                textFields.forEach(field => {
+                    const inputElement = document.getElementById(`admin-${field.replace(/-/g, '_')}`); // Example: admin-hero_title
+                    if (inputElement) {
+                        inputElement.value = websiteContentData[field] || '';
+                    } else {
+                        console.warn(`Admin text input not found for field: admin-${field.replace(/-/g, '_')}`);
+                    }
+                });
+
+                // Populate instructor text fields dynamically
+                const instructorTextEditorContainer = document.getElementById('instructor-text-editor-container');
+                if (instructorTextEditorContainer) {
+                    instructorTextEditorContainer.innerHTML = ''; // Clear previous inputs
+                    for (let i = 1; i <= 3; i++) { // Assuming 3 instructors
+                        const instructorDiv = document.createElement('div');
+                        instructorDiv.className = 'bg-white p-4 rounded-lg shadow-md mb-4 border border-gray-200';
+                        instructorDiv.innerHTML = `
+                            <h5 class="text-lg font-semibold mb-3 text-gray-800">استاد ${i}</h5>
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">نام:</label>
+                                <input type="text" class="w-full p-2 border rounded-lg text-gray-800" data-instructor-field="instructor${i}-name" value="${websiteContentData[`instructor${i}-name`] || ''}">
+                            </div>
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">تخصص:</label>
+                                <input type="text" class="w-full p-2 border rounded-lg text-gray-800" data-instructor-field="instructor${i}-instrument" value="${websiteContentData[`instructor${i}-instrument`] || ''}">
+                            </div>
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">بیوگرافی:</label>
+                                <textarea class="w-full p-2 border rounded-lg text-gray-800" data-instructor-field="instructor${i}-bio">${websiteContentData[`instructor${i}-bio`] || ''}</textarea>
+                            </div>
+                        `;
+                        instructorTextEditorContainer.appendChild(instructorDiv);
+                    }
+                }
+
+
+                // Populate image previews and set up upload listeners
+                const imageFields = [
+                    { id: 'hero-image-upload', previewId: 'hero-image-preview', dataField: 'hero-bg-data' }, // Use data for hero image
+                    { id: 'about-image-upload', previewId: 'about-image-preview', dataField: 'about-image-url' },
+                    { id: 'instructor1-image-upload', previewId: 'instructor1-image-preview', dataField: 'instructor1-image-url' },
+                    { id: 'instructor2-image-upload', previewId: 'instructor2-image-preview', dataField: 'instructor2-image-url' },
+                    { id: 'instructor3-image-upload', previewId: 'instructor3-image-preview', dataField: 'instructor3-image-url' },
+                ];
+
+                imageFields.forEach(field => {
+                    const input = document.getElementById(field.id);
+                    const preview = document.getElementById(field.previewId);
+                    if (input && preview) {
+                        const imageData = websiteContentData[field.dataField];
+                        if (imageData) {
+                            preview.src = imageData;
+                            preview.style.display = 'block';
+                        } else {
+                             preview.style.display = 'none';
+                        }
+
+                        input.onchange = async (event) => {
+                            const file = event.target.files[0];
+                            const uploadMessage = document.getElementById('image-upload-message'); // Get message element once
+
+                            if (file) {
+                                const base64 = await fileToBase64(file);
+                                await saveContentToFirestore(field.dataField, base64);
+                                preview.src = base64;
+                                preview.style.display = 'block';
+                                if (uploadMessage) {
+                                    uploadMessage.textContent = 'تصویر با موفقیت آپلود و ذخیره شد.';
+                                    uploadMessage.className = 'text-green-600 text-center mt-3';
+                                    uploadMessage.classList.remove('hidden');
+                                }
+                            } else {
+                                await saveContentToFirestore(field.dataField, null);
+                                preview.style.display = 'none';
+                                if (uploadMessage) {
+                                    uploadMessage.textContent = 'تصویر حذف شد.';
+                                    uploadMessage.className = 'text-orange-500 text-center mt-3';
+                                    uploadMessage.classList.remove('hidden');
+                                }
+                            }
+                        };
+                    } else {
+                        console.warn(`Image input or preview not found for ID: ${field.id}`);
+                    }
+                });
+
+                // Populate gallery image inputs dynamically (now with file inputs)
+                const galleryEditorContainer = document.getElementById('gallery-image-editor-container');
+                if (galleryEditorContainer) {
+                    galleryEditorContainer.innerHTML = '';
+                    for (let i = 1; i <= 6; i++) {
+                        const galleryField = `gallery-image-${i}`;
+                        const div = document.createElement('div');
+                        div.className = 'mb-4 border-b pb-4';
+                        div.innerHTML = `
+                            <label for="${galleryField}-upload" class="block text-md font-medium text-gray-700 mb-2">تصویر گالری ${i}:</label>
+                            <input type="file" id="${galleryField}-upload" accept="image/*" class="w-full p-2 rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500 text-gray-800">
+                            <img id="${galleryField}-preview" class="mt-2 w-32 h-auto rounded-md shadow-sm" src="" alt="پیش‌نمایش گالری ${i}">
+                        `;
+                        galleryEditorContainer.appendChild(div);
+
+                        const input = document.getElementById(`${galleryField}-upload`);
+                        const preview = document.getElementById(`${galleryField}-preview`);
+
+                        const imageData = websiteContentData[galleryField];
+                        if (input && preview) {
+                            if (imageData) {
+                                preview.src = imageData;
+                                preview.style.display = 'block';
+                            } else {
+                                preview.style.display = 'none';
+                            }
+
+                            input.onchange = async (event) => {
+                                const file = event.target.files[0];
+                                const uploadMessage = document.getElementById('image-upload-message'); // Get message element once
+
+                                if (file) {
+                                    const base64 = await fileToBase64(file);
+                                    await saveContentToFirestore(galleryField, base64);
+                                    preview.src = base64;
+                                    preview.style.display = 'block';
+                                    if (uploadMessage) {
+                                        uploadMessage.textContent = 'تصویر گالری با موفقیت آپلود و ذخیره شد.';
+                                        uploadMessage.className = 'text-green-600 text-center mt-3';
+                                        uploadMessage.classList.remove('hidden');
+                                    }
+                                } else {
+                                    await saveContentToFirestore(galleryField, null);
+                                    preview.style.display = 'none';
+                                    if (uploadMessage) {
+                                        uploadMessage.textContent = 'تصویر گالری حذف شد.';
+                                        uploadMessage.className = 'text-orange-500 text-center mt-3';
+                                        uploadMessage.classList.remove('hidden');
+                                    }
+                                }
+                            };
+                        }
+                    }
+                }
+
+                // Populate form submission phone and payment info
+                const adminFormPhoneInput = document.getElementById('admin-form-phone');
+                if (adminFormPhoneInput) adminFormPhoneInput.value = websiteContentData['form-submission-phone'] || '';
+                const adminBankCardInput = document.getElementById('admin-bank-card');
+                if (adminBankCardInput) adminBankCardInput.value = websiteContentData['bank-card-number'] || '';
+                const adminBankIdInput = document.getElementById('admin-bank-id');
+                if (adminBankIdInput) adminBankIdInput.value = websiteContentData['bank-id'] || '';
+
+                // Render products in admin panel
+                renderAdminProducts();
+            }
+
+            // Save All Text Content Button Handler
+            const saveAllTextButton = document.getElementById('save-all-text-button');
+            const textMessage = document.getElementById('text-message');
+            if (saveAllTextButton && textMessage) {
+                saveAllTextButton.addEventListener('click', async () => {
+                    const updates = {};
+                    const textFields = [
+                        'hero-title', 'hero-subtitle', 'about-title', 'about-description',
+                        'products-title', 'enroll-title', 'instructors-title', 'gallery-title',
+                        'contact-title', 'contact-description', 'contact-phone',
+                        'contact-email', 'contact-address', 'payment-status-title',
+                        'payment-success-message', 'payment-success-description', 'footer-text'
+                    ];
+
+                    textFields.forEach(field => {
+                        const inputElement = document.getElementById(`admin-${field.replace(/-/g, '_')}`);
+                        if (inputElement) {
+                            updates[field] = inputElement.value.trim();
+                        }
+                    });
+
+                    // Collect instructor text data
+                    for (let i = 1; i <= 3; i++) {
+                        const nameInput = document.querySelector(`[data-instructor-field="instructor${i}-name"]`);
+                        const instrumentInput = document.querySelector(`[data-instructor-field="instructor${i}-instrument"]`);
+                        const bioInput = document.querySelector(`[data-instructor-field="instructor${i}-bio"]`);
+
+                        if (nameInput) updates[`instructor${i}-name`] = nameInput.value.trim();
+                        if (instrumentInput) updates[`instructor${i}-instrument`] = instrumentInput.value.trim();
+                        if (bioInput) updates[`instructor${i}-bio`] = bioInput.value.trim();
+                    }
+
+
+                    const docRef = getContentDocRef();
+                    if (docRef) {
+                        try {
+                            await setDoc(docRef, updates, { merge: true });
+                            textMessage.textContent = 'متون اصلی با موفقیت ذخیره شدند!';
+                            textMessage.className = 'text-green-600 text-center mt-3';
+                            textMessage.classList.remove('hidden');
+                        } catch (e) {
+                            console.error("خطا در ذخیره متون اصلی: ", e);
+                            textMessage.textContent = 'خطا در ذخیره متون اصلی. لطفا دوباره تلاش کنید.';
+                            textMessage.className = 'text-red-500 text-center mt-3';
+                            textMessage.classList.remove('hidden');
+                        }
+                    }
+                });
+            }
+
+
+            // Save Contact and Payment Info Button Handler
+            const saveContactPaymentInfoButton = document.getElementById('save-contact-payment-info-button');
+            const contactPaymentMessage = document.getElementById('contact-payment-message');
+            if (saveContactPaymentInfoButton && contactPaymentMessage) {
+                saveContactPaymentInfoButton.addEventListener('click', async () => {
+                    const updates = {};
+                    const adminFormPhoneInput = document.getElementById('admin-form-phone');
+                    const adminBankCardInput = document.getElementById('admin-bank-card');
+                    const adminBankIdInput = document.getElementById('admin-bank-id');
+
+                    if (adminFormPhoneInput) updates['form-submission-phone'] = adminFormPhoneInput.value.trim();
+                    if (adminBankCardInput) updates['bank-card-number'] = adminBankCardInput.value.trim();
+                    if (adminBankIdInput) updates['bank-id'] = adminBankIdInput.value.trim();
+                    updates['bank-phone-number'] = updates['form-submission-phone']; // Use same phone for payment contact
+
+
+                    const docRef = getContentDocRef();
+                    if (docRef) {
+                        try {
+                            await setDoc(docRef, updates, { merge: true });
+                            contactPaymentMessage.textContent = 'اطلاعات تماس و پرداخت با موفقیت ذخیره شد!';
+                            contactPaymentMessage.className = 'text-green-600 text-center mt-3';
+                            contactPaymentMessage.classList.remove('hidden');
+                        } catch (e) {
+                            console.error("خطا در ذخیره اطلاعات تماس و پرداخت: ", e);
+                            contactPaymentMessage.textContent = 'خطا در ذخیره اطلاعات تماس و پرداخت. لطفا دوباره تلاش کنید.';
+                            contactPaymentMessage.className = 'text-red-500 text-center mt-3';
+                            contactPaymentMessage.classList.remove('hidden');
+                        }
+                    }
+                });
+            }
+
+
+            // --- Product Management Logic ---
+
+            const productGrid = document.getElementById('product-grid');
+            const productEditorContainer = document.getElementById('product-editor-container');
+            const addProductButton = document.getElementById('add-product-button');
+            const saveProductsButton = document.getElementById('save-products-button');
+            const productsMessage = document.getElementById('products-message');
+
+            function renderProducts() {
+                if (!productGrid) return;
+                productGrid.innerHTML = ''; // Clear existing products
+                products.forEach(product => {
+                    const productCard = `
+                        <div class="bg-white rounded-xl shadow-lg p-6 card-hover transition duration-300 flex flex-col">
+                            <img src="${product.imageUrl || 'https://placehold.co/400x300/CCCCCC/FFFFFF?text=تصویر+ندارد'}" alt="${product.name}" class="w-full h-48 object-cover rounded-lg mb-4">
+                            <h3 class="text-2xl font-semibold mb-2 text-purple-700">${product.name}</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">${product.description}</p>
+                            <div class="flex justify-between items-center mt-auto">
+                                <span class="text-purple-800 font-bold text-xl">${product.price}</span>
+                                <button class="add-to-cart-button bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-full text-sm transition duration-300" data-product-id="${product.id}">
+                                    <i class="fas fa-cart-plus ml-1"></i> افزودن به سبد
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    productGrid.insertAdjacentHTML('beforeend', productCard);
+                });
+
+                // Add event listeners for "Add to Cart" buttons
+                document.querySelectorAll('.add-to-cart-button').forEach(button => {
+                    button.addEventListener('click', (event) => {
+                        const productId = event.target.dataset.productId;
+                        const productToAdd = products.find(p => p.id === productId);
+                        if (productToAdd) {
+                            addToCart(productToAdd);
+                            showMessageBox("اضافه شد", `${productToAdd.name} به سبد خرید اضافه شد.`, 'alert');
+                        }
+                    });
+                });
+            }
+
+            function renderAdminProducts() {
+                if (!productEditorContainer) return;
+                productEditorContainer.innerHTML = ''; // Clear existing inputs
+                products.forEach((product, index) => {
+                    const productEditorHtml = `
+                        <div class="bg-white p-4 rounded-lg shadow-md mb-4 border border-gray-200">
+                            <h5 class="text-lg font-semibold mb-3 text-gray-800">محصول ${index + 1} (${product.name})</h5>
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">نام محصول:</label>
+                                <input type="text" class="w-full p-2 border rounded-lg text-gray-800" data-product-field="name" data-product-id="${product.id}" value="${product.name}">
+                            </div>
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">توضیحات:</label>
+                                <textarea class="w-full p-2 border rounded-lg text-gray-800" data-product-field="description" data-product-id="${product.id}">${product.description}</textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">قیمت (با واحد):</label>
+                                <input type="text" class="w-full p-2 border rounded-lg text-gray-800" data-product-field="price" data-product-id="${product.id}" value="${product.price}">
+                            </div>
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">آپلود تصویر محصول:</label>
+                                <input type="file" class="w-full p-2 border rounded-lg text-gray-800 product-image-upload-input" data-product-field="imageUrl" data-product-id="${product.id}" accept="image/*">
+                                <img class="mt-2 w-32 h-auto rounded-md shadow-sm product-image-preview" src="${product.imageUrl || ''}" alt="پیش‌نمایش محصول">
+                            </div>
+                            <button class="delete-product-button bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-full text-sm mt-3 transition duration-300" data-product-id="${product.id}">
+                                حذف محصول
+                            </button>
+                        </div>
+                    `;
+                    productEditorContainer.insertAdjacentHTML('beforeend', productEditorHtml);
+                });
+
+                // Add event listeners for delete buttons in admin panel
+                productEditorContainer.querySelectorAll('.delete-product-button').forEach(button => {
+                    button.addEventListener('click', (event) => {
+                        const productIdToDelete = event.target.dataset.productId;
+                        const productIndex = products.findIndex(p => p.id === productIdToDelete);
+                        if (productIndex !== -1) {
+                            showMessageBox(
+                                "حذف محصول",
+                                `آیا از حذف محصول "${products[productIndex].name}" مطمئن هستید؟`,
+                                "confirm",
+                                () => {
+                                    products.splice(productIndex, 1);
+                                    renderAdminProducts(); // Re-render admin panel after deletion
+                                    saveProducts(); // Save changes to Firestore immediately
+                                }
+                            );
+                        }
+                    });
+                });
+
+                // Add event listeners for product image uploads
+                productEditorContainer.querySelectorAll('.product-image-upload-input').forEach(input => {
+                    input.addEventListener('change', async (event) => {
+                        const file = event.target.files[0];
+                        const productId = event.target.dataset.productId;
+                        const productIndex = products.findIndex(p => p.id === productId);
+
+                        if (file && productIndex !== -1) {
+                            const base64 = await fileToBase64(file);
+                            products[productIndex].imageUrl = base64; // Update in local array
+                            const previewImg = event.target.nextElementSibling; // Get the img tag right after input
+                            if (previewImg) {
+                                previewImg.src = base64;
+                                previewImg.style.display = 'block';
+                            }
+                            // No need to save to Firestore here, it will be saved with "ذخیره همه محصولات"
+                            productsMessage.textContent = `تصویر محصول ${products[productIndex].name} به‌روز شد. برای ذخیره نهایی، "ذخیره همه محصولات" را بزنید.`;
+                            productsMessage.className = 'text-blue-600 text-center mt-3';
+                            productsMessage.classList.remove('hidden');
+                        } else if (!file && productIndex !== -1) {
+                             products[productIndex].imageUrl = ''; // Clear image
+                             const previewImg = event.target.nextElementSibling;
+                             if(previewImg) previewImg.style.display = 'none';
+                             productsMessage.textContent = `تصویر محصول ${products[productIndex].name} حذف شد. برای ذخیره نهایی، "ذخیره همه محصولات" را بزنید.`;
+                             productsMessage.className = 'text-orange-500 text-center mt-3';
+                             productsMessage.classList.remove('hidden');
+                        }
+                    });
+                });
+            }
+
+            if (addProductButton && productsMessage) {
+                addProductButton.addEventListener('click', () => {
+                    const newProductId = `prod${Date.now()}`; // Simple unique ID
+                    products.push({
+                        id: newProductId,
+                        name: 'محصول جدید',
+                        description: 'توضیحات محصول جدید',
+                        price: '0 تومان',
+                        imageUrl: 'https://placehold.co/400x300/CCCCCC/FFFFFF?text=محصول+جدید'
+                    });
+                    renderAdminProducts();
+                    productsMessage.textContent = 'محصول جدید اضافه شد. برای ذخیره نهایی، دکمه "ذخیره همه محصولات" را بزنید.';
+                    productsMessage.className = 'text-blue-600 text-center mt-3';
+                    productsMessage.classList.remove('hidden');
+                });
+            }
+
+            if (saveProductsButton && productsMessage) {
+                saveProductsButton.addEventListener('click', async () => {
+                    // Collect updated data from admin panel inputs
+                    const updatedProducts = [];
+                    productEditorContainer.querySelectorAll('.bg-white.p-4').forEach(productDiv => {
+                        const productId = productDiv.querySelector('[data-product-field="name"]').dataset.productId;
+                        const name = productDiv.querySelector('[data-product-field="name"]').value;
+                        const description = productDiv.querySelector('[data-product-field="description"]').value;
+                        const price = productDiv.querySelector('[data-product-field="price"]').value;
+                        // The imageUrl is already updated in the 'products' array by the file input handler
+                        const currentProduct = products.find(p => p.id === productId);
+                        const imageUrl = currentProduct ? currentProduct.imageUrl : ''; // Use the already-converted Base64 or URL
+
+                        updatedProducts.push({
+                            id: productId,
+                            name,
+                            description,
+                            price,
+                            imageUrl
+                        });
+                    });
+
+                    products = updatedProducts; // Update global products array
+                    await saveProducts(); // Save to Firestore
+                });
+            }
+
+            async function saveProducts() {
+                const docRef = getContentDocRef();
+                if (docRef) {
+                    try {
+                        await setDoc(docRef, { products: products }, { merge: true });
+                        if (productsMessage) {
+                            productsMessage.textContent = 'محصولات با موفقیت ذخیره شدند!';
+                            productsMessage.className = 'text-green-600 text-center mt-3';
+                            productsMessage.classList.remove('hidden');
+                        }
+                        renderProducts(); // Re-render main page products
+                    } catch (e) {
+                        console.error("خطا در ذخیره محصولات: ", e);
+                        if (productsMessage) {
+                            productsMessage.textContent = 'خطا در ذخیره محصولات. لطفا دوباره تلاش کنید.';
+                            productsMessage.className = 'text-red-500 text-center mt-3';
+                            productsMessage.classList.remove('hidden');
+                        }
+                    }
+                }
+            }
+
+
+            // --- Shopping Cart Logic ---
+            const cartButton = document.getElementById('cart-button');
+            const cartCountSpan = document.getElementById('cart-count');
+            const cartModal = document.getElementById('cart-modal');
+            const closeCartModalButton = document.getElementById('close-cart-modal-button');
+            const cartItemsContainer = document.getElementById('cart-items-container');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+            const cartTotalSpan = document.getElementById('cart-total');
+            const clearCartButton = document.getElementById('clear-cart-button');
+            const checkoutButton = document.getElementById('checkout-button');
+            const checkoutInfoModal = document.getElementById('checkout-info-modal');
+            const closeCheckoutModalButton = document.getElementById('close-checkout-modal-button');
+            const checkoutInfoOkButton = document.getElementById('checkout-info-ok-button');
+            const displayBankCard = document.getElementById('display-bank-card');
+            const displayBankId = document.getElementById('display-bank-id');
+            const displayBankPhone = document.getElementById('display-bank-phone');
+
+
+            function saveCartToLocalStorage() {
+                localStorage.setItem('shoppingCart', JSON.stringify(cart));
+                updateCartCount();
+            }
+
+            function updateCartCount() {
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                if (cartCountSpan) cartCountSpan.textContent = totalItems;
+            }
+
+            function addToCart(product) {
+                const existingItemIndex = cart.findIndex(item => item.id === product.id);
+                if (existingItemIndex > -1) {
+                    cart[existingItemIndex].quantity += 1;
+                } else {
+                    cart.push({ ...product, quantity: 1 });
+                }
+                saveCartToLocalStorage();
+            }
+
+            function updateCartItemQuantity(productId, newQuantity) {
+                const itemIndex = cart.findIndex(item => item.id === productId);
+                if (itemIndex > -1) {
+                    if (newQuantity <= 0) {
+                        cart.splice(itemIndex, 1); // Remove if quantity is 0 or less
+                    } else {
+                        cart[itemIndex].quantity = newQuantity;
+                    }
+                    saveCartToLocalStorage();
+                    renderCart();
+                }
+            }
+
+            function removeFromCart(productId) {
+                cart = cart.filter(item => item.id !== productId);
+                saveCartToLocalStorage();
+                renderCart();
+            }
+
+            function calculateCartTotal() {
+                let total = 0;
+                cart.forEach(item => {
+                    // Convert Persian digits to English before parsing
+                    const priceString = String(item.price).replace(/[۰-۹]/g, d => '0123456789'[d]).replace(/[^0-9]/g, '');
+                    total += parseInt(priceString || '0') * item.quantity; // Use '0' if parsing fails
+                });
+                 // Format with Persian digits and currency, ensuring not to pass invalid numbers
+                return total.toLocaleString('fa-IR') + ' تومان';
+            }
+
+            function renderCart() {
+                if (!cartItemsContainer || !emptyCartMessage || !cartTotalSpan) return;
+
+                cartItemsContainer.innerHTML = '';
+                if (cart.length === 0) {
+                    emptyCartMessage.classList.remove('hidden');
+                } else {
+                    emptyCartMessage.classList.add('hidden');
+                    cart.forEach(item => {
+                        const cartItemDiv = document.createElement('div');
+                        cartItemDiv.className = 'flex items-center justify-between border-b pb-2';
+                        cartItemDiv.innerHTML = `
+                            <div class="flex items-center">
+                                <img src="${item.imageUrl || 'https://placehold.co/50x50/CCCCCC/FFFFFF?text=آیتم'}" alt="${item.name}" class="w-12 h-12 object-cover rounded-md mr-4">
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">${item.name}</h4>
+                                    <p class="text-sm text-gray-600">${item.price}</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button class="decrease-quantity-button bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-300 transition duration-150" data-product-id="${item.id}">-</button>
+                                <span class="text-gray-800 font-medium">${item.quantity}</span>
+                                <button class="increase-quantity-button bg-gray-200 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-300 transition duration-150" data-product-id="${item.id}">+</button>
+                                <button class="remove-from-cart-button text-red-500 hover:text-red-700 transition duration-150" data-product-id="${item.id}">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        `;
+                        cartItemsContainer.appendChild(cartItemDiv);
+                    });
+
+                    // Attach event listeners for quantity change and remove buttons
+                    cartItemsContainer.querySelectorAll('.decrease-quantity-button').forEach(button => {
+                        button.addEventListener('click', (event) => {
+                            const productId = event.target.dataset.productId;
+                            const item = cart.find(i => i.id === productId);
+                            if (item) updateCartItemQuantity(productId, item.quantity - 1);
+                        });
+                    });
+                    cartItemsContainer.querySelectorAll('.increase-quantity-button').forEach(button => {
+                        button.addEventListener('click', (event) => {
+                            const productId = event.target.dataset.productId;
+                            const item = cart.find(i => i.id === productId);
+                            if (item) updateCartItemQuantity(productId, item.quantity + 1);
+                        });
+                    });
+                    cartItemsContainer.querySelectorAll('.remove-from-cart-button').forEach(button => {
+                        button.addEventListener('click', (event) => {
+                            const productId = event.target.dataset.productId;
+                            showMessageBox(
+                                "حذف از سبد",
+                                "آیا از حذف این کالا از سبد خرید مطمئن هستید؟",
+                                "confirm",
+                                () => removeFromCart(productId)
+                            );
+                        });
+                    });
+                }
+                cartTotalSpan.textContent = calculateCartTotal();
+                updateCartCount();
+            }
+
+            // Event Listeners for Cart Button and Modal
+            if (cartButton && cartModal && closeCartModalButton && clearCartButton && checkoutButton) {
+                cartButton.addEventListener('click', () => {
+                    renderCart(); // Render cart every time it's opened to reflect latest changes
+                    openModalAnimation(cartModal);
+                });
+                closeCartModalButton.addEventListener('click', () => {
+                    closeModalAnimation(cartModal);
+                });
+                clearCartButton.addEventListener('click', () => {
+                    showMessageBox(
+                        "پاک کردن سبد",
+                        "آیا از پاک کردن کامل سبد خرید مطمئن هستید؟",
+                        "confirm",
+                        () => {
+                            cart = [];
+                            saveCartToLocalStorage();
+                            renderCart();
+                        }
+                    );
+                });
+                checkoutButton.addEventListener('click', () => {
+                    if (cart.length === 0) {
+                        showMessageBox("خطا", "سبد خرید شما خالی است. لطفاً کالایی را اضافه کنید.", "alert");
+                        return;
+                    }
+                    // Display checkout info
+                    if (displayBankCard) displayBankCard.textContent = websiteContentData['bank-card-number'] || '---';
+                    if (displayBankId) displayBankId.textContent = websiteContentData['bank-id'] || '---';
+                    if (displayBankPhone) displayBankPhone.textContent = websiteContentData['bank-phone-number'] || '---';
+
+                    closeModalAnimation(cartModal, () => {
+                        openModalAnimation(checkoutInfoModal);
+                    });
+                });
+            }
+
+            if (checkoutInfoOkButton && checkoutInfoModal && closeCheckoutModalButton) {
+                checkoutInfoOkButton.addEventListener('click', () => {
+                    closeModalAnimation(checkoutInfoModal);
+                    // Optionally clear cart after successful checkout display
+                    cart = [];
+                    saveCartToLocalStorage();
+                    renderCart();
+                });
+                closeCheckoutModalButton.addEventListener('click', () => {
+                    closeModalAnimation(checkoutInfoModal);
+                });
+            }
+
+            // Initial cart count update on load
+            updateCartCount();
+
+        }); // End of DOMContentLoaded
+    </script>
 </body>
 </html>
+
